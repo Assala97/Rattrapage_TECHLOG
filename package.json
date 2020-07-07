@@ -1,0 +1,29 @@
+{
+  "name": "rattrapage_techlog",
+  "version": "1.0.0",
+  "description": "## Programme 1. GIT 2. NODEJS 3. DOCKER",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Assala97/Rattrapage_TECHLOG.git"
+  },
+  "keywords": [
+    "nodejs;",
+    "git;",
+    "docker;",
+    "express"
+  ],
+  "author": "Assala soussi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Assala97/Rattrapage_TECHLOG/issues"
+  },
+  "homepage": "https://github.com/Assala97/Rattrapage_TECHLOG#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.22"
+  }
+}

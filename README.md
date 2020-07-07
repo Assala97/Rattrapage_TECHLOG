@@ -5,6 +5,9 @@
 2. NODEJS
 3. DOCKER
 
+## Utilisation
+ - git clone
+ - node server.js
 
 ## Docker Mongo
 ```
