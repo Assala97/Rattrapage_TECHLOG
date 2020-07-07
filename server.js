@@ -88,6 +88,27 @@ app.delete("/users/:id", (req, res)=>{
     })
 });
 
+app.put('/users/:id', (req, res)=> {
+    mongoose.model('User').findById(req.params.id).then((result)=>{
+        result.nom = req.body.nom;
+        result.login = req.body.login;
+        result.password = req.body.password;
+        let isValid = true;
+
+        if(isValid){
+            result.save().then((result)=>{
+                res.status(200).json({result : result, user : result})
+            },(err)=>{
+                res.status(400).json(err)
+            })
+        } else {
+            return res.status(400).json({"error": "schema not valid !"})
+        }
+    },(err)=>{
+        res.status(400).json(err)
+    })
+});
+
 
 // START SERVER
 // ------------------------
