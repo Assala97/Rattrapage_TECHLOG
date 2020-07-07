@@ -79,6 +79,14 @@ app.post("/users/",(req,res)=>{
         console.log("Votre truc est pas bon")
 });
 
+app.delete("/users/:id", (req, res)=>{
+    mongoose.model('User').deleteOne({_id : req.params.id}).then((result)=>{
+        res.status(200).json(result);
+        console.log(result);
+    },(err)=>{
+        res.status(400).json(err)
+    })
+});
 
 
 // START SERVER
