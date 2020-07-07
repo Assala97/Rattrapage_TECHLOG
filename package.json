@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Assala97/Rattrapage_TECHLOG/issues"
   },
-  "homepage": "https://github.com/Assala97/Rattrapage_TECHLOG#readme"
+  "homepage": "https://github.com/Assala97/Rattrapage_TECHLOG#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
