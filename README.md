@@ -21,3 +21,6 @@ cd dockerfile
 docker build -t demo:1.0.0 .
 docker run --name demo -p 80:80 -d demo:1.0.0
 ```
+## Comment démarrer l'application
+A la racine du dossier, exécuter la commande suivante :
+docker-compose build && docker-compose up
