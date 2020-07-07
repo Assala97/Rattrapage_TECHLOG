@@ -51,6 +51,14 @@ app.get("/",(req,res)=>{
 });
 
 //-- LIST ROUTE
+app.get("/users", (req, res)=>{
+    mongoose.model('User').find({}).then((result)=>{
+        res.status(200).json(result);
+        console.log(result);
+    },(err)=>{
+        res.status(400).json(err)
+    })
+});
 
 
 
