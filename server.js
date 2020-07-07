@@ -60,6 +60,25 @@ app.get("/users", (req, res)=>{
     })
 });
 
+app.post("/users/",(req,res)=>{
+    const myModel = mongoose.model('User');
+    let newUser = new  myModel(req.body);
+    newUser.nom = req.body.nom;
+    newUser.login = req.body.login;
+    newUser.password = req.body.password;
+    let isValid = true;
+    if (isValid)
+    {
+        newUser.save().then((result)=>{
+            res.status(200).json({result : result, user : newUser});
+            console.log(result);
+        },(err)=>{
+            res.status(400).json(err)
+        })
+    }else
+        console.log("Votre truc est pas bon")
+});
+
 
 
 // START SERVER
