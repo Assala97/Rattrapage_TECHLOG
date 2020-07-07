@@ -109,6 +109,15 @@ app.put('/users/:id', (req, res)=> {
     })
 });
 
+app.get("/users/:id", (req, res)=>{
+    mongoose.model('User').findById(req.params.id).then((result)=>{
+        res.status(200).json(result);
+        console.log(result);
+    },(err)=>{
+        res.status(400).json(err)
+    })
+});
+
 
 // START SERVER
 // ------------------------
