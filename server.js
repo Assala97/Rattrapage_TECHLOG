@@ -10,14 +10,49 @@ let bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
+// --- Base de donnees
+let mongoose = require('mongoose');
+
+let database  = mongoose.connect("mongodb://localhost/demo",{
+    promiseLibrary: require('bluebird'),
+    useNewUrlParser: true
+});
+
+// ---- Creation du schema
+//--- Module dependencies
+const Schema	= mongoose.Schema;
+
+let UserSchema = new Schema({
+    nom    : String,
+    login    : String,
+    password    : String
+});
+
+UserSchema.methods.toWebFormat = function(){
+    return new Promise(((resolve, reject) => {
+        let toWeb = {
+            nom : this.nom,
+            login : this.login,
+            password : this.password
+        };
+        resolve(toWeb);
+    }));
+};
+
+mongoose.model('User', UserSchema);
+
 
 // ------------------------
-// LIST ROUTE
+// ROUTE TEST
 // ------------------------
 app.get("/",(req,res)=>{
     console.log("hello M1 Miage");
-    res.status(200).json({"message" : "Hello World !"})
+    res.status(200).json({"message" : "Hello World from assala soussi !"})
 });
+
+//-- LIST ROUTE
+
+
 
 // START SERVER
 // ------------------------
